@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.pdf {
+        # Rails.logger.info "#{simple_format(@post.description)}"
         @paragraphs = @post.description.split("\r\n\r\n")
         render :layout => false 
       }
