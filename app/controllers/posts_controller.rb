@@ -18,17 +18,20 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     
     respond_to do |format|
-      format.pdf { render :layout => false }
       format.html # show.html.erb
+      format.pdf {
+        @paragraphs = @post.description.split("\r\n\r\n")
+        render :layout => false 
+      }
       format.xml  { render :xml => @post }
     end
   end
-
+  
   # GET /posts/new
   # GET /posts/new.xml
   def new
     @post = Post.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
