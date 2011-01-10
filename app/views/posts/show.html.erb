@@ -1,0 +1,7 @@
+<%= link_to 'Download PDF', posts_path(:format => "pdf") %>
+
+<p id="notice"><%= notice %></p>
+<p id="title"><%= @post.title %></p>
+<p id="description"><%= @post.description %></p>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
